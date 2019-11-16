@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		html, body {
+			margin: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100vh;
+		}
+
+		body {
+			background: url('C7Lw.gif') center/cover no-repeat;
+			position: relative;
+			z-index: 4;
+
+		}
+
+		body::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.6);
+			z-index: -3;
+
+		}
+
+		.block {
+			position: absolute;
+			top: 52%;
+			left: 62%;
+			-webkit-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			-o-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+
+		#neontext {
+			font-size: 72px;
+			font-family: monospace;
+			color: #fff;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="block">
+		<p id="neontext">
+			&nbsp;&nbsp;life<br>
+			is<br>
+			&nbsp;worst<br>
+			&nbsp;now<br>
+		</p>
+	</div>	
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="jquery.novacancy.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#neontext').novacancy({
+				'reblickProbability': 0.9,
+				'blinkMin': 0.12,
+				'blinkMax': 0.2,
+				'loopMin': 1,
+				'loopMax': 2,
+				'color': '#ff0036',
+				'glow': ['0 0 150px #ff0036', '0 0 50px #ff0036', '0 0 20px #ff0036'],
+				'off': 1,
+				'blink': 0,
+				'autoOn': true
+			})
+		});
+		window.addEventListener('load', () => {
+			let audio = new Audio('rain.mp3');
+			audio.play()
+			audio.loop = true
+		})
+	</script>
+</body>
+</html>
